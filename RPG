@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    srand(time(0));
+
+    int total = 20;
+    int intelligence, stamina, charisma;
+
+    // 1. 合計が20になるようにランダムに割り振る
+    intelligence = rand() % (total + 1);          // 0〜20の間で決定
+    stamina = rand() % (total - intelligence + 1); // 残りの値から決定
+    charisma = total - intelligence - stamina;    // 最後は残りをすべて割り当て
+
+    // 2. 結果を表示
+    printf("--- Character Stats ---\n");
+    printf("INT (記憶力): %d\n", intelligence);
+    printf("STA (瞬発力): %d\n", stamina);
+    printf("CHA (魅力): %d\n", charisma);
+    printf("-----------------------\n");
+
+    // 3. クラス判定（最大値を判定）
+    printf("Result: ");
+    if (intelligence >= stamina && intelligence >= charisma) {
+        printf("Class: [Mage] (魔法使い系)\n");
+    } else if (stamina >= intelligence && stamina >= charisma) {
+        printf("Class: [Knight] (ファイター系)\n");
+    } else {
+        printf("Class: [Thief] (盗人系)\n");
+    }
+
+    return 0;
+}
