@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main()
+{
+    int a, b, c;
+
+    printf("Input a: ");
+    scanf("%d", &a);
+    printf("Input b: ");
+    scanf("%d", &b);
+    printf("Input c: ");
+    scanf("%d", &c);
+
+    
+    int D = b * b - 4 * a * c;
+
+    if (D < 0) {
+        printf("No real solutions (D < 0)\n");
+    } 
+    else if (D == 0) { 
+        printf("One solution (D = 0)\n");
+    } 
+    else {
+        printf("Two solutions (D > 0)\n");
+    }
+
+    return 0;
+}
